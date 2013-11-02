@@ -1,0 +1,7 @@
+<% object.each do |obj|%>
+ <tr>
+   <% header_include.each do |a|%>
+    <td><%=obj.send(a)%></td>
+   <% end %>
+ </tr>
+<% end%>

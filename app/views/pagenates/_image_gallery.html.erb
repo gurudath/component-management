@@ -1,0 +1,42 @@
+<link href="/stylesheets/slidorion.css"  rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+<div id="slidorion" class="slidorion">
+	<div class="slider">
+               <% object.each do |obj|%>
+                     <div class="slide"><%=image_tag(obj.resize_image(530,500),:size => "530x500", :alt => "#{obj.name}")%><!--img src=<%#=obj.image_path%> /--></div>
+                <% end%>
+		<!--div class="slide"><img src="/images/boxing.jpg" /></div>
+		<div class="slide"><img src="/images/athletics.jpg" /></div>
+		<div class="slide"><img src="/images/basketball.jpg" /></div-->
+	</div>
+	<div class="accordion">
+                <% object.each do |obj|%>
+                <div class="header"><%=obj.name%></div>
+                <div class="content">
+                        <p><%=obj.name%>.</p>
+                </div>
+                <% end%>
+		<!--div class="header">Muhammad Ali</div>
+		<div class="content">
+			<p>Muhammad Ali (born Cassius Marcellus Clay, Jr.) is an American former professional boxer, philanthropist and social activist. Nicknamed "The Greatest", and widely considered the best heavyweight of all-time, Ali was involved in several historic boxing matches.</p>
+			<p>Ali become the first and only three-time lineal World Heavyweight Champion.</p>
+		</div>
+		<div class="header">Usain Bolt</div>
+		<div class="content">
+			<p>Usain Bolt is a Jamaican sprinter widely regarded as the fastest person ever. He is the first man to hold both the 100 and 200 metres world records since automatic time measurements became mandatory in 1977.</p>
+			<p>His achievements have earned him the media nickname "Lightning Bolt", and awards including the IAAF World Athlete of the Year and Track &amp; Field Athlete of the Year</p>
+		</div>
+		<div class="header">Michael Jordan</div>
+		<div class="content">
+			<p>Michael Jeffrey Jordan (MJ), is an American former professional basketball player, entrepreneur, and majority owner and chairman of the Charlotte Bobcats.</p>
+			<p>MJ's individual accolades and accomplishments include five MVP awards, fourteen NBA All-Star Game appearances and many more. He was inducted into the Basketball Hall of Fame in 2009.</p>
+		</div-->
+	</div>
+</div>
+<script type="text/javascript" src="/javascripts/jquery.easing.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.slidorion.min.js"></script>
+<script>
+ $(function() {
+  $('#slidorion').slidorion();
+ });
+</script>

@@ -1,0 +1,29 @@
+<table width="100%"  border="0">
+  <tr class="decoration_tr" valign="top">
+    <td class='main_td'>
+      <%=raw render_template_in_format({:object=> @people,:header_include=>['id','name'],:main_header=>{'id'=>'Person Id',"name"=>"Name"},:decoration=>"/decoration/decoration",:partial=>"/people/index"})%>
+      <%= link_to 'New Person', new_person_path %>
+    </td>
+    <td class='main_td'>
+      <%=raw render_template_in_format({:object=> @people,:header_include=>[],:main_header=>{'id'=>'Person Id',"name"=>"Name"},:decoration=>"/decoration/decoration",:partial=>"/people/index"})%>
+      <%= link_to 'New Person', new_person_path %>
+    </td>
+    <td class='main_td'>
+    </td>
+  </tr>
+  <tr class="decoration_tr" valign="top">
+    <td class='main_td'>
+    </td>
+    <td class='main_td'>
+    </td>
+    <td class='main_td'>
+    </td>
+  </tr>
+  <tr class="decoration_tr" valign="top">    
+    <td class='main_td'>
+    </td>
+    <td class='main_td'>
+    </td>
+    <td class='main_td'>
+    </td>
+ <table>

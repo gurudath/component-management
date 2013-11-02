@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @pagenate.first_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @pagenate.email_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_pagenate_path(@pagenate) %> |
+<%= link_to 'Back', pagenates_path %>

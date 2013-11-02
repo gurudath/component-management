@@ -1,0 +1,50 @@
+<div class="wrapper row3">
+  <div id="container">
+    <div class="pad">
+      <%#=link_to("Add Doctor",{:action=>"new"},:class=>"mybutton back")%>
+      <section>
+<%unless @images.blank?%>
+<%@images.each do |image|%>
+  <p  style="font-size: 2em; color: #FF8000;"><%=image.name%><span style="padding-left: 50%;"><%=image_tag(image.resize_image(250,250),:size => "250x250", :alt => "#{image.name}")%></span><span style="font-size:0.8em; color: #FF8000;"><%=link_to("imsert_image","javacript:void(0)",:class=>"insert_image","data-id"=>"#{image.id}","data-src"=>"#{image.resize_image(250,250)}") if params["popup"]=="true"%></span></p>
+ <%end%>
+ <%= will_paginate @images %>
+<%end%>
+</section>
+    </div>
+  </div>
+ </div>
+</div>
+<%if not  params["popup"].blank? and params["popup"]=="true"%>
+<script type="text/javascript">
+jQuery('.insert_image').click(function(){
+ var id = jQuery(this).attr('data-id')
+ var src = jQuery(this).attr('data-src')
+ window.opener.$("#before_upload").show();
+ window.opener.$("#profile_image_id").attr("value",id)
+ window.opener.$("#profile_image").attr("src",src)
+ window.opener.$("#after_upload").hide();
+ self.close();
+ });
+</script>
+<%end%>
+<style type="text/css">
+.mybutton {
+display: inline-block;
+position: relative;
+margin: 10px;
+padding: 0 20px;
+text-align: center;
+text-decoration: none;
+font: bold 12px/25px Arial, sans-serif;
+box-shadow:#000 4px 4px 5px;
+}
+.back {
+background-color: #FF8000;
+color: #000000;
+}
+.row3 a {
+    background-color: grey;
+    color: #FF9900;
+}
+</style>
+

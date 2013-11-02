@@ -1,0 +1,2 @@
+module PagenatesHelper
+end

@@ -1,0 +1,25 @@
+<%= form_for(@pagenate) do |f| %>
+  <% if @pagenate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pagenate.errors.count, "error") %> prohibited this pagenate from being saved:</h2>
+
+      <ul>
+      <% @pagenate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email_id %><br />
+    <%= f.text_field :email_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

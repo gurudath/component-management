@@ -1,0 +1,27 @@
+<script  type="text/javascript" src="/javascripts/jquery.js"></script>
+<script  type="text/javascript" src="/javascripts/jquery.form.js"></script>
+<%=form_tag('/image/create',{:multipart => true})%>
+ <label for="name">Name Image:</label><%=text_field("image","name")%></p>
+<label for="name">Description:</label><%=text_field("image","description")%></p>
+<label for="name">Caption:</label><%=text_field("image","caption")%></p>
+ <label for="name">Profile Image:</label><%=file_field_tag "image_set" %></p>
+<%=submit_tag("Upload Image")%>
+<script type="text/javascript">
+/*jQuery("#upload_image").click(function(){
+  $.ajax({
+      url: "/image/create",
+      type: "post",
+      data: $("#image_form").serialize(),
+      success: function(response){
+         alert(responseText);
+         alert(response);
+         window.opener.$("#before_upload").html(responseText);
+      },
+      complete: function(response){
+        alert(responseText);
+        window.opener.$("#after_upload").hide();
+        self.close();
+      },
+    }); 
+});*/
+</script>

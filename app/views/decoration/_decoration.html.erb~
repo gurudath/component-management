@@ -1,0 +1,15 @@
+<table class="table_structure">
+ <thead>
+  <tr>
+   <%header_include.each do |a|%>
+     <th> <%=(!main_header.blank? and main_header.keys.include?a) ? main_header[a] : a %></th>
+   <%end%>
+  </tr>
+ </thead>
+ <tbody>
+   <%=yield%>
+ </tbody>
+</table>
+<style type="text/css">
+  .table_border{border-top-width: 1px;border-right-width: 1px;border-bottom-width: 1px;border-left-width: 1px; }
+</style>

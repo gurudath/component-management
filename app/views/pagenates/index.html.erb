@@ -1,0 +1,32 @@
+<table width="100%"  border="0">
+  <tr class="decoration_tr" valign="top">
+    <td class='main_td'>
+      <%=raw render_template_in_format({:object=>@pagenates,:header_include=>['id','first_name','email_id'],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+      <%= link_to 'New Pagenate', new_pagenate_path %>
+    </td>
+    <td class='main_td'>
+      <%=raw render_template_in_format({:object=>@pagenates,:header_include=>[],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+      <%#=raw render_template_in_format({:object=>Person.all,:header_include=>['id'],:main_header=>{'id'=>'You Tube Video'},:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/you_tube_video"})%>
+    </td>
+    <td class='main_td'>
+       <%#=render_template_in_format({:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/video",:file => "/videos/sample_vide.mp4", :image => "/videos/video_image.jpg"})%>
+       <%= video_player({:file => "/videos/sample_vide.mp4", :image => "/videos/video_image.jpg"}) if  File.exists?(Rails.root+"app/assets/videos/sample_vide.mp4")%>
+    </td>
+  </tr>
+  <tr class="decoration_tr" valign="top">
+      <td class='main_td'>
+<%=raw render_template_in_format({:object=>@pagenates,:header_include=>['id','first_name','email_id'],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+    </td>
+    <td class='main_td'>
+      <%=raw render_template_in_format({:object=>Person.all,:header_include=>['id'],:main_header=>{'id'=>'Video Gallery'},:decoration=>"/decoration/decoration",:partial=>"/pagenates/video_gallery"})%>
+    </td>
+    <td class='main_td'>
+    	<%=raw render_template_in_format({:object=>@pagenates,:header_include=>['id','first_name','email_id'],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration"})%>
+    </td>
+  </tr>
+   <tr class="gallery_tr" valign="top">   
+      <td class='gallery_td'> 
+      <%=raw render_template_in_format({:object=>Image.all,:header_include=>['id'],:main_header=>{'id'=>'Image Gallery'},:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/image_gallery"})%>
+      </td>
+   </tr>
+</table>
