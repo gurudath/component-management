@@ -1,32 +1,54 @@
+<%main_str =  Time.now%>
 <table width="100%"  border="0">
   <tr class="decoration_tr" valign="top">
     <td class='main_td'>
+      <%cache("component1") do%>
       <%=raw render_template_in_format({:object=>@pagenates,:header_include=>['id','first_name','email_id'],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+      <%end%>
       <%= link_to 'New Pagenate', new_pagenate_path %>
     </td>
     <td class='main_td'>
+       <%cache("component2") do%>
       <%=raw render_template_in_format({:object=>@pagenates,:header_include=>[],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+       <%end%>
       <%#=raw render_template_in_format({:object=>Person.all,:header_include=>['id'],:main_header=>{'id'=>'You Tube Video'},:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/you_tube_video"})%>
     </td>
     <td class='main_td'>
        <%#=render_template_in_format({:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/video",:file => "/videos/sample_vide.mp4", :image => "/videos/video_image.jpg"})%>
+        <%cache("component3") do%>
        <%= video_player({:file => "/videos/sample_vide.mp4", :image => "/videos/video_image.jpg"}) if  File.exists?(Rails.root+"app/assets/videos/sample_vide.mp4")%>
+        <%end%>
     </td>
   </tr>
   <tr class="decoration_tr" valign="top">
       <td class='main_td'>
+       <%cache("component4") do%>
 <%=raw render_template_in_format({:object=>@pagenates,:header_include=>['id','first_name','email_id'],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+       <%end%>
     </td>
     <td class='main_td'>
+       <%cache("component5") do%>
       <%=raw render_template_in_format({:object=>Person.all,:header_include=>['id'],:main_header=>{'id'=>'Video Gallery'},:decoration=>"/decoration/decoration",:partial=>"/pagenates/video_gallery"})%>
+       <%end%>
     </td>
     <td class='main_td'>
+         <%cache("component6") do%>
     	<%=raw render_template_in_format({:object=>@pagenates,:header_include=>['id','first_name','email_id'],:main_header=>{'id'=>'Pagination Id',"first_name"=>"First Name"},:decoration=>"/decoration/decoration"})%>
+       <%end%>
     </td>
   </tr>
    <tr class="gallery_tr" valign="top">   
-      <td class='gallery_td'> 
-      <%=raw render_template_in_format({:object=>Image.all,:header_include=>['id'],:main_header=>{'id'=>'Image Gallery'},:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/image_gallery"})%>
+      <td class='gallery_td'>
+         <%cache("component7") do%>
+        <%srt = Time.now%>
+        <%=raw render_template_in_format({:object=>Image.all,:header_include=>['id'],:main_header=>{'id'=>'Image Gallery'},:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/image_gallery"})%>
+        <%end_t = Time.now%>
+        <%logger.info "==================difftime===#{end_t - srt }=="%>
+        <%puts "==================difftime===#{end_t - srt }=="%>
+         <%end%>
       </td>
    </tr>
 </table>
+<%main_end  = Time.now%>
+        <%logger.info "==================difftime===#{main_end - main_str }=="%>
+        <%puts "==================difftime===#{main_end - main_str }=="%>
