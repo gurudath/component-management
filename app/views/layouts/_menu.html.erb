@@ -1,8 +1,7 @@
 <link type="text/css" rel="stylesheet" href="/stylesheets/js-css-menu.css" media="screen" />
 <ul class="js-css-menu shadow responsive">
-	<li class = "shadow_li"><a href="#">Link</a></li>
-	<li class="current shadow_li"><a href="#">Current</a></li>
-	<li class = "shadow_li"><a href="#">Link with Menu</a>
+	<li class = "shadow_li"><a href="/">Home</a></li>
+	<li class="current shadow_li"><%=link_to("Article",:controller=>"articles",:action=>"index")%>
 		<div class="first_level">
 			<ul>
 				<li><b>Col 1</b></li>
@@ -18,14 +17,22 @@
 			</ul>
 		</div>
 	</li>
-	<li class = "shadow_li"><a href="#">Link</a>
+        <li class = "shadow_li"><%=link_to("Author",:controller=>"authors",:action=>"index")%></li>
+ 	<li class = "shadow_li"><%=link_to("Image",:controller=>"image",:action=>"list")%></li>
+        <li  class = "shadow_li" id='search'>
+	 <%=form_tag({:action=>"search"},{ :method => :get}) do %>
+	 <%=hidden_field_tag :per_page,30%>
+	 <%=text_field_tag :search,params[:search],{:class=>"search_box"}%>
+	 <%=submit_tag("search",{:class=>'search_button'})%> 
+	 <%end%>
+        </li>
 </ul>
 <style type="text/css">
 .js-css-menu {
   width: 100%;
 }
 .shadow_li {
-width: 429px;
+width: 342px;
 text-align: center;
 border-color: black;
 }
@@ -34,4 +41,9 @@ border-color: black;
 .first_level ul li b{font-size: 23px;}
 .first_level ul li a {font-size: 20px;}
 .first_level ul {width: 328px;}
+.search_box {height: 47px;width: 276px;background-color: gold;font-size: 26px;}
+.search_button {width: 58px;
+height: 38px;
+background-color: royalblue;
+font-size: 15px;}
 </style>

@@ -15,6 +15,9 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'progress_bar'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 gem 'execjs'
 gem 'therubyracer'
 gem 'jquery-rails'

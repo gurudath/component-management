@@ -1,0 +1,44 @@
+<link type="text/css" rel="stylesheet" href="/stylesheets/js-css-menu.css" media="screen" />
+<ul class="js-css-menu shadow responsive">
+	<li class = "shadow_li"><a href="#">Link</a></li>
+	<li class="current shadow_li"><a href="#">Current</a></li>
+	<li class = "shadow_li"><a href="#">Link with Menu</a>
+		<div class="first_level">
+			<ul>
+				<li><b>Col 1</b></li>
+				<li><a href="#">Sublink 1</a></li>
+				<li><a href="#">Sublink 2</a></li>
+				<li><a href="#">Sublink 3</a></li>
+			</ul>
+			<ul>
+				<li><b>Col 2</b></li>
+				<li><a href="#">Sublink 1</a></li>
+				<li><a href="#">Sublink 2</a></li>
+				<li><a href="#">Sublink 3</a></li>
+			</ul>
+		</div>
+	</li>
+ 	<li class = "shadow_li"><a href="#">Link</a>
+        <li id='search'>
+	 <%=form_tag({:action=>"search"},{ :method => :get}) do %>
+	 <%=hidden_field_tag :per_page,30%>
+	 <%=text_field_tag :search,params[:search]%>
+	 <%=submit_tag("search")%> 
+	 <%end%>
+        </li>
+</ul>
+<style type="text/css">
+.js-css-menu {
+  width: 100%;
+}
+.shadow_li {
+width: 429px;
+text-align: center;
+border-color: black;
+}
+.shadow_li a {font-size: 25px;}
+.first_level{width: 47.6%;}
+.first_level ul li b{font-size: 23px;}
+.first_level ul li a {font-size: 20px;}
+.first_level ul {width: 328px;}
+</style>

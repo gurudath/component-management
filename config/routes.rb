@@ -1,8 +1,9 @@
 AlphabetSort::Application.routes.draw do
   resources :people
-
   resources :pagenates
-
+  resources :authors
+  resources :articles
+  match 'search' => 'articles#search', :as => :search
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

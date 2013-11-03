@@ -1,0 +1,41 @@
+<h1>Listing articles</h1>
+<%= link_to 'New Article', new_article_path %>
+<div id="facets">
+  <h3>Authors</h3>
+  <ul>
+    <% for row in @results.facet(:author_ids).rows %>  
+      <li>
+          <strong><%= Author.find(row.value).name if row%> (<%= row.count %>)</strong>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<table width="100%"  border="0">
+  <tr class="decoration_tr" valign="top">
+    <td class='main_td'>
+       <%cache("component2") do%>
+      <%=raw render_template_in_format({:object=>@articles,:header_include=>[],:main_header=>{'id'=>'Id',"title"=>"Title","content"=>"Content"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+       <%end%>
+      <%#=raw render_template_in_format({:object=>Person.all,:header_include=>['id'],:main_header=>{'id'=>'You Tube Video'},:decoration=>"/decoration/decoration_empty",:partial=>"/pagenates/you_tube_video"})%>
+    </td>
+</table>
+
+<!-- class="divTable">
+             <div class="headRow">
+               <div class="divCell" id="id">ID</div>
+                <div class="divCell" id="title">Title</div>
+                <div  class="divCell" id="content">Content</div>
+                <div  class="divCell" id="action_items">Action Items</div>
+             </div>
+             <%#unless @articles.blank?%>
+             <%# @articles.each do |article| %>
+            <div class="divRow">
+                <div class="divCell" id="id"><%#= article.id%></div>
+                <div class="divCell" id="title"><%#=raw truncate(article.title, :length => 50) %></div>
+                <div class="divCell" id="content"><%#= raw truncate(highlight_text(params[:search],"content"), :length => 200) %></div>
+                <div class="divCell"  id="action_items"><%#= link_to 'Show', article %><br/><%#= link_to 'Edit', edit_article_path(article) %><br><%#= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></div>
+            </div>
+           <%# end %>
+           <%#end%>
+           <%#= will_paginate @articles %>
+      </div>

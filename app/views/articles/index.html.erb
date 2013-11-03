@@ -1,0 +1,10 @@
+<h1>Listing articles</h1>
+<%= link_to 'New Article', new_article_path %>
+<table width="100%"  border="0">
+  <tr class="decoration_tr" valign="top">
+    <td class='main_td'>
+       <%cache("component2") do%>
+      <%=raw render_template_in_format({:object=>Article.all,:header_include=>[],:main_header=>{'id'=>'Id',"title"=>"Title","content"=>"Content"},:decoration=>"/decoration/decoration",:partial=>"/pagenates/index"})%>
+       <%end%>
+    </td>
+</table>
