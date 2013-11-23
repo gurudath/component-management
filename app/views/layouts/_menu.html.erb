@@ -1,6 +1,6 @@
 <link type="text/css" rel="stylesheet" href="/stylesheets/js-css-menu.css" media="screen" />
 <ul class="js-css-menu shadow responsive">
-	<li class = "shadow_li"><a href="/">Home</a></li>
+	<li class = "shadow_li"><%=link_to("Home",:controller=>"paginates",:action=>"index")%></li>
 	<li class="current shadow_li"><%=link_to("Article",:controller=>"articles",:action=>"index")%>
 		<div class="first_level">
 			<ul>

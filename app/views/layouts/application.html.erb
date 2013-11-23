@@ -23,6 +23,11 @@
 <div id="container" style="width:100%">
   <div id="header" style="background-color:#FFA500;">
     <h1 style="margin-bottom:0;text-align: center;">Made By BN Gurudath</h1></div>
+     <% if @current_user %>
+         Logged in as <%= @current_user.email_id %>
+         <%= link_to "Log out", :controller=>"login",:action=>"logout"  %>
+      <% else %>
+      <% end %>
       <%=render :partial=>"/layouts/menu"%>
       <div id="content" style="background-color:#EEEEEE;height:200px;width:100%;float:left;">
        <%= yield %>
