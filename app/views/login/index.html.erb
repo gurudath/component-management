@@ -1,0 +1,14 @@
+<%= form_tag(:conteoller=>"login",:action=>"verify_login") %>
+  <div class="field">
+    <%='email_id' %><%= text_field_tag :email%>
+  </div>
+  <div class="field">
+    <%= "password" %><%= password_field_tag :password %>
+  </div>
+  <!-- class="field">
+    <%#= "description" %><%#= text_field_tag :reset_password%>
+  </div-->
+  <div class="actions">
+    <%= submit_tag('submit') %>
+  </div>
+
