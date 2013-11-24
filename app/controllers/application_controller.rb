@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
   logger.info "===============current_user===#{@current_user.inspect}========#{session[:user_id].inspect}"
  end
 
+  def set_login_details
+   session[:user_id] = @user
+   cookies[:user_email]={ :value => @user.email_id, :expires => 1.hour.from_now }
+  end
+
 end

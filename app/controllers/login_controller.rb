@@ -4,15 +4,9 @@ class LoginController < ApplicationController
    
   end
 
-  def set_login_details
-   session[:user_id] = @user
-   cookies[:user_email]={ :value => @user.email_id, :expires => 1.hour.from_now }  
-  end
-  
-
   def verify_login
    if (!params[:email].blank? and !params[:password].blank?)
-    @user=User.where(:password =>params[:password],:email_id=>params[:email]).first
+    @user=User.where(:password =>Digest::MD5.hexdigest(params[:password]),:email_id=>params[:email]).first
      if (!@user.blank?)
        set_login_details
        redirect_to :controller=>:pagenates,:action=>:index

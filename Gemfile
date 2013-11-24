@@ -39,6 +39,10 @@ gem "rmagick", "~> 2.13.1"
 #gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'debugger'
 gem 'jw_player_helper'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'rest-client'
+#gem 'rest_client', git:'git://github.com/rest-client/rest-client.git'
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
