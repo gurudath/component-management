@@ -1,4 +1,4 @@
 component-management
 ====================
 
-warious aspects of the components of websitw
+Various aspects of the components of website.
